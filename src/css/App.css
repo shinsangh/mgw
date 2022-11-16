@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+
+/* 로그인 후 홈 */
+
+main {
+  min-width: 1000px;
+  position: relative;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+/* 네임카드 */
+.go-gadget-content .profile {
+  padding: 40px 40px 10px;
+  text-align: center;
+}
+.go-gadget-content {
+  margin-inline: auto;
+  width: 25vh;
+  min-width: 260px;
+  min-height: 200px;
+  border-radius: 0;
+  background: #EEF1F6;
+  overflow: hidden;
+  border-radius: 6px;
+}
+img#photo_thumb{
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+
+.amplify-tabs {
+  /* display: none; */
+}
+[data-amplify-authenticator] {
+  --amplify-components-button-primary-background-color: #0071BC;
+
+}
+:root {
+
+  --amplify-colors-brand-primary-10: var(--amplify-colors-blue-10);
+  --amplify-colors-brand-primary-20: var(--amplify-colors-blue-20);
+  --amplify-colors-brand-primary-40: var(--amplify-colors-blue-40);
+  --amplify-colors-brand-primary-60: var(--amplify-colors-blue-60);
+  --amplify-colors-brand-primary-80: var(--amplify-colors-blue-80);
+  --amplify-colors-brand-primary-90: var(--amplify-colors-blue-90);
+  --amplify-colors-brand-primary-100: var(--amplify-colors-blue-100);
+  --amplify-colors-brand-secondary-10: var(--amplify-colors-neutral-10);
+  --amplify-colors-brand-secondary-20: var(--amplify-colors-neutral-20);
+  --amplify-colors-brand-secondary-40: var(--amplify-colors-neutral-40);
+  --amplify-colors-brand-secondary-60: var(--amplify-colors-neutral-60);
+  --amplify-colors-brand-secondary-80: var(--amplify-colors-neutral-80);
+  --amplify-colors-brand-secondary-90: var(--amplify-colors-neutral-90);
+  --amplify-colors-brand-secondary-100: var(--amplify-colors-neutral-100);
+
+  --amplify-colors-border-primary: var(--amplify-colors-neutral-40);
+  --amplify-colors-border-secondary: var(--amplify-colors-neutral-20);
+  --amplify-colors-border-tertiary: var(--amplify-colors-neutral-10);
+  --amplify-colors-background-secondary: var(--amplify-colors-brand-primary-10);
+  --amplify-components-tabs-item-border-color: var(--amplify-colors-neutral-60);
+
+  --amplify-radii-small: 0;
+  --amplify-radii-medium: 0;
+  --amplify-radii-large: 0;
+  --amplify-space-small: 1rem;
+  --amplify-space-medium: 1.5rem;
+  --amplify-space-large: 2rem;
+  --amplify-border-widths-small: 2px;
+  --amplify-border-widths-medium: 4px;
+  --amplify-border-widths-large: 8px;
+
+}
+appmain {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  width: var(--amplify-components-authenticator-modal-width);
+  height: var(--amplify-components-authenticator-modal-height);
+  
+  background: url('../img/nightback.jpg');
+  position: fixed;
+  top: var(--amplify-components-authenticator-modal-top);
+  left: var(--amplify-components-authenticator-modal-left);
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 50vmin;
+  pointer-events: none;
+  position: relative;
+  display: block;
+  margin: auto;
+  
+  
+}
+.App-logo1 {
+  
+  height: 30vmin;
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.App-logos {
+  margin-top: 12%;
+  background: url('../img/mt2.png');
+  background-color: white;
+  border-color: black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  background-size:contain;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    animation-direction: reverse;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

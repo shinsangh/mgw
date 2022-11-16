@@ -1,0 +1,18 @@
+.go-gadget-content .profile {
+  padding: 40px 40px 10px;
+  text-align: center;
+}
+.go-gadget-content {
+  margin: 20px;
+  width: 25vh;
+  min-height: 200px;
+  border-radius: 0;
+  background: #EEF1F6;
+  overflow: hidden;
+  border-radius: 6px;
+}
+img#photo_thumb{
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
