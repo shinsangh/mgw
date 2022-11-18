@@ -4,6 +4,7 @@ import { withAuthenticator,Button,Heading,View,Image,Text, useTheme, Authenticat
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import Main from "./main/main";
+import MainTable from "./MainTable.tsx";
 import Nav from "./nav/nav";
 import { SignInHeader } from "./SignInHeader";
 import { SignInFooter } from "./SignInFooter";
@@ -127,16 +128,11 @@ const formFields = {
       order: 6,
       placeholder: '生年月日'
     },
-    'custom:department': {
-      order: 7,
-      placeholder: '部署'
-    },
-    'custom:position': {
-      order: 8,
-      placeholder: '職位'
-    },
+    
   },
 };
+
+
 
 export default function App() {
   return (
@@ -144,7 +140,9 @@ export default function App() {
       <Authenticator formFields={formFields} components={components}>
         <Router>
           <div className="App">
-            <Notice/>
+                
+                  <MainTable />
+                  
           </div>
         </Router>
       </Authenticator>

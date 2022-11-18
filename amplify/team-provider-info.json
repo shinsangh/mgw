@@ -9,11 +9,23 @@
       "UnauthRoleName": "amplify-mgw-dev-143219-unauthRole",
       "StackName": "amplify-mgw-dev-143219",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:330163476960:stack/amplify-mgw-dev-143219/0d87d890-5c02-11ed-85de-06eaae894031",
-      "AmplifyAppId": "d7r354pph0k5i"
+      "AmplifyAppId": "d7r354pph0k5i",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-mgw-dev-143219-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "mgw7d55e6a7": {}
+      },
+      "function": {
+        "getsample": {
+          "deploymentBucketName": "amplify-mgw-dev-143219-deployment",
+          "s3Key": "amplify-builds/getsample-7841434c6b34616b7538-build.zip"
+        },
+        "reactsample01function": {}
+      },
+      "api": {
+        "mgw": {},
+        "kintoneapi": {}
       }
     }
   }
