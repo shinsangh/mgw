@@ -14,7 +14,8 @@
     },
     "categories": {
       "auth": {
-        "mgw7d55e6a7": {}
+        "mgw7d55e6a7": {},
+        "userPoolGroups": {}
       },
       "function": {
         "getsample": {
