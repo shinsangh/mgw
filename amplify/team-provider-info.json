@@ -23,10 +23,6 @@
           "s3Key": "amplify-builds/getsample-7841434c6b34616b7538-build.zip"
         },
         "reactsample01function": {}
-      },
-      "api": {
-        "mgw": {},
-        "kintoneapi": {}
       }
     }
   }

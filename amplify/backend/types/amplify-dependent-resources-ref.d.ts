@@ -1,16 +1,4 @@
 export type AmplifyDependentResourcesAttributes = {
-    "api": {
-        "mgw": {
-            "GraphQLAPIKeyOutput": "string",
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        },
-        "kintoneapi": {
-            "RootUrl": "string",
-            "ApiName": "string",
-            "ApiId": "string"
-        }
-    },
     "auth": {
         "mgw7d55e6a7": {
             "IdentityPoolId": "string",
