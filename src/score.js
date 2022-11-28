@@ -16,7 +16,6 @@ function App2()  {
           setData(response.data);
         });
 }, []);
-  console.log(data[0]);
   
   const DbList = ({ data }) => {
 
