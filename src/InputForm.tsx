@@ -58,7 +58,7 @@ function Profile({ signOut, user }) {
     }
     
     for(var i=0; i<text.length; i++){ 
-      if(text[i].email.value=email){
+      if(text[i].email.value===email){
         alert("이벤트 참가는 한번만 가능합니다. 수정 원할시 별도 요청필요");
         // eslint-disable-next-line no-restricted-globals
         location.reload();

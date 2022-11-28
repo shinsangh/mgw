@@ -19,7 +19,6 @@ function App2()  {
   
   const DbList = ({ data }) => {
 
-    
     // function sortedPlayers() {
     //   return players
     //     .sort((p1, p2) => (p2.score - p1.score))
@@ -28,7 +27,7 @@ function App2()  {
         <div>
             {data.map(data => {
 
-              if(data.$id.value==405){
+              if(data.$id.value==1){
 
                 let board = [
                 {id : 1, name : '이상욱', score : data.num1.value},
