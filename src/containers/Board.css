@@ -1,6 +1,14 @@
 ul.Board {
-  width: 500px;
+  width: 100%;
   margin: 30px auto;
   padding: 0;
   box-shadow: 1px 1px 5px rgba(0,0,0, 0.2);
 }
+
+@media only screen and (max-width: 768px) {ul.Board {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0;
+  box-shadow: 1px 1px 5px rgba(0,0,0, 0.2);
+}
+ }

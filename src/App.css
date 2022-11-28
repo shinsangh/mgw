@@ -12,6 +12,15 @@ button:focus {
   background: white;
   padding: 10px;
 }
+
+@media only screen and (max-width: 768px) {
+  .App2 {
+    margin: 100px 5% 100px 5%;
+    background: white;
+    padding: 10px;
+  }
+
+ }
 .App {
   text-align: center;
 }

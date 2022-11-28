@@ -2,3 +2,12 @@ h1.Title {
   font-size: 4rem;
   text-align: center;
 }
+
+
+@media only screen and (max-width: 768px) {
+  
+  h1.Title {
+    font-size: 3rem !important;
+    text-align: center;
+  }
+ }
