@@ -14,6 +14,7 @@ import "./css/App.css";
 import awsExports from "./aws-exports";
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import Notice from "./MainTable.tsx";
+import Score from "./score.js";
 Amplify.configure(awsExports);
 // SetUIVocabularies(('ja'));
 
@@ -136,16 +137,16 @@ const formFields = {
 
 export default function App() {
   return (
-    <appmain>
+    <div className ="appmain">
       <Authenticator formFields={formFields} components={components}>
         <Router>
           <div className="App">
                 
                   <MainTable />
-                  
+                  <Score/>
           </div>
         </Router>
       </Authenticator>
-    </appmain>
+    </div>
   );
 }

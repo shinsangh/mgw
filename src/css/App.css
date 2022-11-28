@@ -81,7 +81,7 @@ body {
   --amplify-border-widths-large: 8px;
 
 }
-appmain {
+.appmain {
   display: flex;
   flex-direction: column;
   overflow-y: auto;

@@ -33,11 +33,13 @@ function Profile({ signOut, user }) {
 
   const onChange = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    
-    setInputs({
-      ...inputs, // 기존의 input 객체를 복사한 뒤
-      [name]: value // name 키를 가진 값을 value 로 설정
-    });
+   
+      setInputs({
+        ...inputs, // 기존의 input 객체를 복사한 뒤
+        [name]: value // name 키를 가진 값을 value 로 설정
+      });
+
+
 
     if(inputs.title!=='' && inputs.detail!==''&& inputs.num1!==''&& inputs.num2!==''&& inputs.num3!==''&& inputs.num4!==''&& inputs.num5!==''){enableButton(e.target.value);}
 
@@ -69,16 +71,7 @@ function Profile({ signOut, user }) {
     alert("이벤트 참여 완료")
     // eslint-disable-next-line no-restricted-globals
     location.reload();
-    setInputs({
-      num1:'',
-      num2:'',
-      num3:'',
-      num4:'',
-      num5:'',
-      email:'',
-      title: '',
-      detail: '',
-    })
+ 
   };
   
   function randomNum(){
@@ -86,8 +79,8 @@ function Profile({ signOut, user }) {
     
     for(var i = 0; i < 5; i++) {
       let random = Math.floor(Math.random() * 20+1)
-      if (Arrays.indexOf(random) === -1) {
-        Arrays.push(random)
+      if (Arrays.indexOf(' '+random) === -1) {
+        Arrays.push(' '+random)
       } else {
         i--
       }
@@ -108,27 +101,28 @@ function Profile({ signOut, user }) {
         <p className="md-4" style={{
               color: "yellow", 
               backgroundColor: "black"
-            }}><button onClick={randomNum}>번호생성</button></p>
+            }}><button onClick={randomNum}>번호생성(sample)</button></p>
         <p className="md-5" style={{
               color: "yellow", 
               backgroundColor: "black"
             }}>
               송년회 이벤트
               <br />
-              마운틴 로또 (당첨 번호는 사장님께서 발표..)
+              마운틴 로또 1~20까지 5개 선택하세요<br />
+              (당첨 번호는 사장님께서 발표..)
             </p>
 				<div className="mini_gnb_btn_wrap">
-        <input type="number" name="num1" min="1" max="20" onChange={onChange} value={num1}/>
-        <input type="number" name="num2" min="1" max="20" onChange={onChange} value={num2}/>
-        <input type="number" name="num3" min="1" max="20" onChange={onChange} value={num3}/>
-        <input type="number" name="num4" min="1" max="20" onChange={onChange} value={num4}/>
-        <input type="number" name="num5" min="1" max="20" onChange={onChange} value={num5}/>
+        <input type="number" name="num1" min="1" max="20" onChange={onChange} value={num1} />
+        <input type="number" name="num2" min="1" max="20" onChange={onChange} value={num2} />
+        <input type="number" name="num3" min="1" max="20" onChange={onChange} value={num3} />
+        <input type="number" name="num4" min="1" max="20" onChange={onChange} value={num4} />
+        <input type="number" name="num5" min="1" max="20" onChange={onChange} value={num5} />
    
         <button onClick={onKintone} disabled={!btdis}>전송</button>
 					
 
 				</div>
-        <button onClick={signOut}>Sign out</button>
+        <button onClick={signOut}>로그아웃</button>
 			</div>
 	
 	);
