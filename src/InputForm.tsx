@@ -99,53 +99,95 @@ function Profile({ signOut, user }) {
 
 
   async function check(){
-    var pickCnt=0;
     var check;
+    let bae=0;
+    let kim=0;
+    let shin=0;
+    let kim2=0;
+    let lee=0;
     try {
       check = await getTitle(); 
     }
     catch(error){
       console.log(error);
     }
-    
+    let members = ['sj.bae@mountain-info.co.jp','ys.kim@mountain-info.co.jp','sh.shin@mountain-info.co.jp','sk.kim@mountain-info.co.jp','sw.lee@mountain-info.co.jp'];
     for(var i=0; i<check.length; i++){ 
-
-      if(check[i].email.value==="score"){
+      
+      for(var m=0; m <5; m++){
+      if(check[i].email.value===members[m]){
         let number = [check[i].num1.value,check[i].num2.value,check[i].num3.value,check[i].num4.value,check[i].num5.value];
         let chk = [loto1,loto2,loto3,loto4,loto5];
         
-        for(var j=0; j < 6; j++){
-          for(var k=0; k <5; k++){
-              if(number[j] == chk[k]){
-                pickCnt++;
-              }
-            }
+          switch ( check[i].email.value ) {
+            case "sj.bae@mountain-info.co.jp":
+              for(var j=0; j < 6; j++){
+                for(var k=0; k <5; k++){
+                    if(number[j] == chk[k]){
+                      bae++;
+                    }
+                  }
+                }
+              break;
+            case "ys.kim@mountain-info.co.jp":
+              for(var j=0; j < 6; j++){
+                for(var k=0; k <5; k++){
+                    if(number[j] == chk[k]){
+                      kim++;
+                    }
+                  }
+                }
+              break;
+            case "sh.shin@mountain-info.co.jp":
+              for(var j=0; j < 6; j++){
+                for(var k=0; k <5; k++){
+                    if(number[j] == chk[k]){
+                      shin++;
+                    }
+                  }
+                }
+              break;
+            case "sk.kim@mountain-info.co.jp":
+              for(var j=0; j < 6; j++){
+                for(var k=0; k <5; k++){
+                    if(number[j] == chk[k]){
+                      kim2++;
+                    }
+                  }
+                }
+              break;
+            case "sw.lee@mountain-info.co.jp":
+              for(var j=0; j < 6; j++){
+                for(var k=0; k <5; k++){
+                    if(number[j] == chk[k]){
+                      lee++;
+                    }
+                  }
+                }
+              break;
+             
           }
-        console.log(number);
-        console.log(chk);
-        console.log(pickCnt);
-      if(pickCnt == 5){
-        alert('5개');
-      }
-      else if(pickCnt == 4){
-        alert('4개');
-      }
-      else if(pickCnt == 3){
-        alert('3개');
-      }
-      else if(pickCnt == 2){
-        alert('2개');
-      }
-      else if(pickCnt == 1){
-        alert('1개');
-      }
-      else{
-          alert('0개');
-      }
+      
+          let board = [
+            {name : '이상욱: ', score : lee},
+            {name : '김요셉: ', score : kim},
+            {name : '신상훈: ', score : shin},
+            {name : '김선관: ', score : kim2},
+            {name : '배수진: ', score : bae}
+          ];
+          board.sort(function(a, b) {
+            return b.score-a.score ;
+          });
+
+        const content = document.getElementById('lotochk');
+        content.innerHTML = board[0].name+board[0].score+"개, "+board[1].name+board[1].score+"개, "+board[2].name+board[2].score+"개, "+board[3].name+board[3].score+"개, "+board[4].name+board[4].score+"개";
+        content.style.color = "yellow";
+        content.style.backgroundColor = "black";
         
+      
       }
     }
-   
+    }
  
   };
 
@@ -175,10 +217,13 @@ function Profile({ signOut, user }) {
 		
 		
 			<div className="mini_gnb_content"> 
-      <div id='my_div'><span style={{
+        <div id='my_div'>
+          <span style={{
               color: "yellow", 
               backgroundColor: "black"
-            }}>내 선택번호:</span></div>
+            }}>내 선택번호: 아직 없습니다.
+          </span>
+        </div>
       
         <p className="md-4" style={{
               color: "yellow", 
@@ -213,8 +258,10 @@ function Profile({ signOut, user }) {
         <input type="number" name="loto3" min="1" max="20" onChange={onChange} value={loto3} />
         <input type="number" name="loto4" min="1" max="20" onChange={onChange} value={loto4} />
         <input type="number" name="loto5" min="1" max="20" onChange={onChange} value={loto5} />
-        <button onClick={check}>당첨 확인</button>
-
+        <button onClick={check} disabled>당첨 확인</button><br/> 
+        <div id='lotochk'/>
+          
+        
 
 				</div><br/>
         <button onClick={signOut}>로그아웃</button>
