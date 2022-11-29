@@ -24,12 +24,17 @@ function Profile({ signOut, user }) {
     num5:'',
     email: user.attributes.email,
     title: '  ',
-    detail: '  '
-
+    detail: '  ',
+    loto1:'',
+    loto2:'',
+    loto3:'',
+    loto4:'',
+    loto5:'',
+    mySelected:'아직 없습니다'
     
   });
 
-  const { email, title, detail,num1,num2,num3,num4, num5 } = inputs; // 비구조화 할당을 통해 값 추출
+  const { email, title, detail,num1,num2,num3,num4, num5,loto1,loto2,loto3,loto4,loto5,mySelected } = inputs; // 비구조화 할당을 통해 값 추출
 
   const onChange = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -91,13 +96,90 @@ function Profile({ signOut, user }) {
     lotto.appendChild(li);             
     
   }
-  
 
+
+  async function check(){
+    var pickCnt=0;
+    var check;
+    try {
+      check = await getTitle(); 
+    }
+    catch(error){
+      console.log(error);
+    }
+    
+    for(var i=0; i<check.length; i++){ 
+
+      if(check[i].email.value==="score"){
+        let number = [check[i].num1.value,check[i].num2.value,check[i].num3.value,check[i].num4.value,check[i].num5.value];
+        let chk = [loto1,loto2,loto3,loto4,loto5];
+        
+        for(var j=0; j < 6; j++){
+          for(var k=0; k <5; k++){
+              if(number[j] == chk[k]){
+                pickCnt++;
+              }
+            }
+          }
+        console.log(number);
+        console.log(chk);
+        console.log(pickCnt);
+      if(pickCnt == 5){
+        alert('5개');
+      }
+      else if(pickCnt == 4){
+        alert('4개');
+      }
+      else if(pickCnt == 3){
+        alert('3개');
+      }
+      else if(pickCnt == 2){
+        alert('2개');
+      }
+      else if(pickCnt == 1){
+        alert('1개');
+      }
+      else{
+          alert('0개');
+      }
+        
+      }
+    }
+   
+ 
+  };
+
+  async function myNum(){
+    var mynum;
+    try {
+      mynum = await getTitle(); 
+    }
+    catch(error){
+      console.log(error);
+    }
+    for(var i=0; i<mynum.length; i++){ 
+      if(mynum[i].email.value===email){
+        let number = [mynum[i].num1.value,mynum[i].num2.value,mynum[i].num3.value,mynum[i].num4.value,mynum[i].num5.value];
+        const element = document.getElementById('my_div');
+        element.innerHTML = '내 선택번호: ' +number;
+        element.style.color = "yellow";
+        element.style.backgroundColor = "black";
+      }
+       
+    };
+    
+  }
+  myNum();
 
 	return (
 		
 		
 			<div className="mini_gnb_content"> 
+      <div id='my_div'><span style={{
+              color: "yellow", 
+              backgroundColor: "black"
+            }}>내 선택번호:</span></div>
+      
         <p className="md-4" style={{
               color: "yellow", 
               backgroundColor: "black"
@@ -123,10 +205,18 @@ function Profile({ signOut, user }) {
         <input type="number" name="num4" min="1" max="20" onChange={onChange} value={num4} />
         <input type="number" name="num5" min="1" max="20" onChange={onChange} value={num5} />
    
-        <button onClick={onKintone} disabled={!btdis}>전송</button>
+        <button onClick={onKintone} disabled={!btdis}>전송</button><br/><br/>
 					
 
-				</div>
+        <input type="number" name="loto1" min="1" max="20" onChange={onChange} value={loto1} />
+        <input type="number" name="loto2" min="1" max="20" onChange={onChange} value={loto2} />
+        <input type="number" name="loto3" min="1" max="20" onChange={onChange} value={loto3} />
+        <input type="number" name="loto4" min="1" max="20" onChange={onChange} value={loto4} />
+        <input type="number" name="loto5" min="1" max="20" onChange={onChange} value={loto5} />
+        <button onClick={check}>당첨 확인</button>
+
+
+				</div><br/>
         <button onClick={signOut}>로그아웃</button>
 			</div>
 	

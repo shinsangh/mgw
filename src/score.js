@@ -7,8 +7,8 @@ import './App.css'
 
 const restEndpoint = "https://30hm1g62xi.execute-api.ap-northeast-1.amazonaws.com/kintone/kintone";
 
-function App2()  {
- 
+function App2({ user })  {
+  
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get(restEndpoint)
@@ -16,7 +16,6 @@ function App2()  {
           setData(response.data);
         });
 }, []);
-  
   const DbList = ({ data }) => {
 
     // function sortedPlayers() {
@@ -25,6 +24,7 @@ function App2()  {
     // }
     return (
         <div>
+          
             {data.map(data => {
 
               if(data.$id.value==1){
@@ -55,10 +55,11 @@ function App2()  {
 };
 
 
+
   
     return (
       <div className="App2">
-
+        
         <Title content="Scoreboard" />
         <DbList data={data}/>
         {/* {nameList} */}
