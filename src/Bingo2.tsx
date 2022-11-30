@@ -82,9 +82,19 @@ function App2({ user })  {
     //   return players
     //     .sort((p1, p2) => (p2.score - p1.score))
     // }
+    function handleOnClick(){
+
+    }
     return (
         <div>
         <div id="bingoWarp">
+        <div id='bingTitle'><br />
+          <span style={{
+              color: "yellow", 
+              backgroundColor: "black"
+            }}>빙고 번호를 선택해 주세요 1~25까지
+          </span>
+        </div><br/>
               <input type="number" name="bing0" min="1" max="25" size={0} onChange={onChange} value={bing0} />
               <input type="number" name="bing1" min="1" max="25" size={1} onChange={onChange} value={bing1} />
               <input type="number" name="bing2" min="1" max="25" size={3} onChange={onChange} value={bing2} />
@@ -124,41 +134,20 @@ function App2({ user })  {
                 
                 let bingos = data.bingo.value;
                 const arr = bingos.split(",");
-                console.log(arr);
                 
 
                 return(
-                  <div id="bingos">
-                    <input type='button' value={arr[0]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[1]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[2]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[3]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[4]} style={{width: "2em"}}/><br/>
-                    <input type='button' value={arr[5]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[6]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[7]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[8]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[9]} style={{width: "2em"}}/><br/>
-                    <input type='button' value={arr[10]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[11]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[12]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[13]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[14]} style={{width: "2em"}}/><br/>
-                    <input type='button' value={arr[15]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[16]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[17]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[18]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[19]} style={{width: "2em"}}/><br/>
-                    <input type='button' value={arr[20]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[21]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[22]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[23]} style={{width: "2em"}}/>
-                    <input type='button' value={arr[24]} style={{width: "2em"}}/>
-
-
-                  <style>
-                  div#bingoWarp{"{display: none;}"}
-                  </style>
+                  <div className="App">
+                    
+                      {arr.map(v => (
+                      
+                      <input type='button' value={v} style={{width: "20%", height:"3.1em"}} onClick={handleOnClick}/> 
+                      
+                      ))}
+                    
+                    <style>
+                      div#bingoWarp{"{display: none;}"}
+                    </style>
                   </div>
                 )
 

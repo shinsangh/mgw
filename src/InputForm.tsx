@@ -231,13 +231,7 @@ function Profile({ signOut, user }) {
           </span>
         </div>
         <Bingo/>
-        <div id='bingTitle'><br />
-          <span style={{
-              color: "yellow", 
-              backgroundColor: "black"
-            }}>빙고 번호를 선택해 주세요 1~25까지
-          </span>
-        </div>
+
         <p className="md-4" style={{
               color: "yellow", 
               backgroundColor: "black"
