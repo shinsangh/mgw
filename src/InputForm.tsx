@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { useLocation } from 'react-router-dom';
+import Bingo from "./Bingo2.tsx";
+import axios from "axios";
 import awsExports from "./aws-exports";
 
 Amplify.configure(awsExports);
@@ -14,6 +16,8 @@ function getTitle(){
 }
   
 function Profile({ signOut, user }) {
+  let bingchk = true;
+
   const [btdis, enableButton] = useState("");
 
   const [inputs, setInputs] = useState({
@@ -30,11 +34,13 @@ function Profile({ signOut, user }) {
     loto3:'',
     loto4:'',
     loto5:'',
-    mySelected:'아직 없습니다'
-    
+    mySelected:'아직 없습니다',
+ 
   });
 
-  const { email, title, detail,num1,num2,num3,num4, num5,loto1,loto2,loto3,loto4,loto5,mySelected } = inputs; // 비구조화 할당을 통해 값 추출
+ 
+
+  const {email, title, detail,num1,num2,num3,num4, num5,loto1,loto2,loto3,loto4,loto5,mySelected } = inputs; // 비구조화 할당을 통해 값 추출
 
   const onChange = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -207,11 +213,11 @@ function Profile({ signOut, user }) {
         element.style.color = "yellow";
         element.style.backgroundColor = "black";
       }
-       
+      
     };
-    
   }
   myNum();
+
 
 	return (
 		
@@ -224,7 +230,14 @@ function Profile({ signOut, user }) {
             }}>내 선택번호: 아직 없습니다.
           </span>
         </div>
-      
+        <Bingo/>
+        <div id='bingTitle'><br />
+          <span style={{
+              color: "yellow", 
+              backgroundColor: "black"
+            }}>빙고 번호를 선택해 주세요 1~25까지
+          </span>
+        </div>
         <p className="md-4" style={{
               color: "yellow", 
               backgroundColor: "black"

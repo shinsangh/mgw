@@ -26,7 +26,7 @@ function App2({ user })  {
         <div>
           
             {data.map(data => {
-
+             
               if(data.$id.value==1){
 
                 let board = [
