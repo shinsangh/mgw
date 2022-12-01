@@ -84,11 +84,15 @@ function App2({ user })  {
     //   return players
     //     .sort((p1, p2) => (p2.score - p1.score))
     // }
-    function handleOnClick(){
+   
 
-    }
-
-    
+    const handleOnClick = (e: React.MouseEvent<HTMLElement>) => {
+      const x = e.currentTarget.getAttribute("id");
+      const element = document.getElementById(x);
+      element.disabled = "true";           
+      element.style.color = "hsl(210deg 11% 73%)"; 
+    };
+  
     return (
         <div>
         
@@ -99,14 +103,13 @@ function App2({ user })  {
                 let bingos = data.bingo.value;
                 const arr = bingos.split(",");
                 
-
+                
                 return(
                   <div className="bingapp">
-                    
-                      {arr.map(v => (
+                   
+                      {arr.map((item, index) => (
                       
-                      <input type='button' value={v} style={{width: "20%", height:"3.1em"}} onClick={handleOnClick}/> 
-                      
+                      <input id={'id'+index} type='button' value={item} style={{width: "20%", height:"3.1em"}} onClick={handleOnClick}/> 
                       ))}
                     
                     <style>
