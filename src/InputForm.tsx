@@ -265,7 +265,7 @@ function Profile({ signOut, user }) {
         <input type="number" name="loto3" min="1" max="20" onChange={onChange} value={loto3} />
         <input type="number" name="loto4" min="1" max="20" onChange={onChange} value={loto4} />
         <input type="number" name="loto5" min="1" max="20" onChange={onChange} value={loto5} />
-        <button onClick={check} disabled>당첨 확인</button><br/> 
+        <button onClick={check}>당첨 확인</button><br/> 
         <div id='lotochk'/>
           
         
