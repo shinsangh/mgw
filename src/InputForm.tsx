@@ -19,7 +19,10 @@ function Profile({ signOut, user }) {
   let bingchk = true;
 
   const [btdis, enableButton] = useState("");
-
+  const [msjbtdis, enablechkButton] = useState("");
+  if(user.attributes.email=='js.noh@mountain-info.co.jp'){
+  }
+   
   const [inputs, setInputs] = useState({
     num1:'',
     num2:'',
@@ -37,8 +40,9 @@ function Profile({ signOut, user }) {
     mySelected:'아직 없습니다',
  
   });
+  
+  
 
- 
 
   const {email, title, detail,num1,num2,num3,num4, num5,loto1,loto2,loto3,loto4,loto5,mySelected } = inputs; // 비구조화 할당을 통해 값 추출
 
@@ -51,13 +55,15 @@ function Profile({ signOut, user }) {
       });
 
 
-
     if(inputs.title!=='' && inputs.detail!==''&& inputs.num1!==''&& inputs.num2!==''&& inputs.num3!==''&& inputs.num4!==''&& inputs.num5!==''){enableButton(e.target.value);}
-
+    if(user.attributes.email=='js.noh@mountain-info.co.jp'){
+      enablechkButton(e.target.value);
+    }
     
   };
 
   async function onKintone (){
+      
     let endpoint = endpoint2;
     let goKin = '?title='+title+'&detail='+detail+'&email='+email+'&num1='+num1+'&num2='+num2+'&num3='+num3+'&num4='+num4+'&num5='+num5;
     var text;
@@ -223,19 +229,49 @@ function Profile({ signOut, user }) {
 		
 		
 			<div className="mini_gnb_content"> 
+     <button onClick={signOut} style={{
+              float: "right"
+            }}>로그아웃</button>
         <div id='my_div'>
+                  
           <span style={{
               color: "yellow", 
               backgroundColor: "black"
             }}>내 선택번호: 아직 없습니다.
           </span>
+          
         </div>
+        
         <Bingo/>
 
         <p className="md-4" style={{
               color: "yellow", 
               backgroundColor: "black"
             }}><button onClick={randomNum}>번호생성(sample)</button></p>
+
+<div className="mini_gnb_btn_wrap">
+        <input type="number" name="num1" min="1" max="20" onChange={onChange} value={num1} />
+        <input type="number" name="num2" min="1" max="20" onChange={onChange} value={num2} />
+        <input type="number" name="num3" min="1" max="20" onChange={onChange} value={num3} />
+        <input type="number" name="num4" min="1" max="20" onChange={onChange} value={num4} />
+        <input type="number" name="num5" min="1" max="20" onChange={onChange} value={num5} />
+   
+        <button onClick={onKintone} disabled={!btdis}>로또번호 전송</button><span style={{
+              color: "yellow", 
+              backgroundColor: "black"
+            }}>←입력칸</span><br/><br/>
+					
+
+        <input type="number" name="loto1" min="1" max="20" onChange={onChange} value={loto1} />
+        <input type="number" name="loto2" min="1" max="20" onChange={onChange} value={loto2} />
+        <input type="number" name="loto3" min="1" max="20" onChange={onChange} value={loto3} />
+        <input type="number" name="loto4" min="1" max="20" onChange={onChange} value={loto4} />
+        <input type="number" name="loto5" min="1" max="20" onChange={onChange} value={loto5} />
+        <button onClick={check} disabled={!msjbtdis}>당첨 확인(사장님 전용)</button><br/> 
+        <div id='lotochk'/>
+          
+        </div>
+
         <p className="md-5" style={{
               color: "yellow", 
               backgroundColor: "black"
@@ -250,28 +286,7 @@ function Profile({ signOut, user }) {
               통합 합산하여 포인트를 가장 적게 획득한 사람이 1등이 됩니다.<br />
               순위가 동률인 경우(공동 1등, 공동 2등이 발생하는 경우) 해당 인원들은 동일한 포인트를 받게 됩니다.
             </p>
-				<div className="mini_gnb_btn_wrap">
-        <input type="number" name="num1" min="1" max="20" onChange={onChange} value={num1} />
-        <input type="number" name="num2" min="1" max="20" onChange={onChange} value={num2} />
-        <input type="number" name="num3" min="1" max="20" onChange={onChange} value={num3} />
-        <input type="number" name="num4" min="1" max="20" onChange={onChange} value={num4} />
-        <input type="number" name="num5" min="1" max="20" onChange={onChange} value={num5} />
-   
-        <button onClick={onKintone} disabled={!btdis}>전송</button><br/><br/>
-					
-
-        <input type="number" name="loto1" min="1" max="20" onChange={onChange} value={loto1} />
-        <input type="number" name="loto2" min="1" max="20" onChange={onChange} value={loto2} />
-        <input type="number" name="loto3" min="1" max="20" onChange={onChange} value={loto3} />
-        <input type="number" name="loto4" min="1" max="20" onChange={onChange} value={loto4} />
-        <input type="number" name="loto5" min="1" max="20" onChange={onChange} value={loto5} />
-        <button onClick={check}>당첨 확인</button><br/> 
-        <div id='lotochk'/>
-          
-        
-
-				</div><br/>
-        <button onClick={signOut}>로그아웃</button>
+				
 			</div>
 	
 	);
