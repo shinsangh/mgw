@@ -4,6 +4,7 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
 import './App.css'
+import Bingo2 from "./Bingo2.tsx";
 import awsExports from "./aws-exports";
 
 Amplify.configure(awsExports);
@@ -68,68 +69,55 @@ function Profile({ signOut, user }) {
  
   };
 
-//   const [data, setData] = useState([]);
-//   useEffect(() => {
-//     axios.get(restEndpoint)
-//         .then(response => {
-//           setData(response.data);
-//         });
-// }, []);
-//   const DbList = ({ data }) => {
-
-//     // function sortedPlayers() {
-//     //   return players
-//     //     .sort((p1, p2) => (p2.score - p1.score))
-//     // }
-//     return (
-//         <div>
-          
- 
-//         </div>
-//     );
-// };
-
+  
 	return (
-		
+    
 		
 			<div className="mini_gnb_content"> 
        
-				<div className="mini_gnb_btn_wrap">
-        <input type="number" name="bing0" min="1" max="25" size={0} onChange={onChange} value={bing0} />
-        <input type="number" name="bing1" min="1" max="25" size={1} onChange={onChange} value={bing1} />
-        <input type="number" name="bing2" min="1" max="25" size={3} onChange={onChange} value={bing2} />
-        <input type="number" name="bing3" min="1" max="25" size={2} onChange={onChange} value={bing3} />
-        <input type="number" name="bing4" min="1" max="25" size={2} onChange={onChange} value={bing4} />
-        <br/>
-        <input type="number" name="bing5" min="1" max="25" size={2} onChange={onChange} value={bing5} />
-        <input type="number" name="bing6" min="1" max="25" size={2} onChange={onChange} value={bing6} />
-        <input type="number" name="bing7" min="1" max="25" size={2} onChange={onChange} value={bing7} />
-        <input type="number" name="bing8" min="1" max="25" size={2} onChange={onChange} value={bing8} />
-        <input type="number" name="bing9" min="1" max="25" size={2} onChange={onChange} value={bing9} />
-        <br/>
-        <input type="number" name="bing10" min="1" max="25" size={2} onChange={onChange} value={bing10} />
-        <input type="number" name="bing11" min="1" max="25" size={2} onChange={onChange} value={bing11} />
-        <input type="number" name="bing12" min="1" max="25" size={2} onChange={onChange} value={bing12} />
-        <input type="number" name="bing13" min="1" max="25" size={2} onChange={onChange} value={bing13} />
-        <input type="number" name="bing14" min="1" max="25" size={2} onChange={onChange} value={bing14} />
-        <br/>
-        <input type="number" name="bing15" min="1" max="25" size={2} onChange={onChange} value={bing15} />
-        <input type="number" name="bing16" min="1" max="25" size={2} onChange={onChange} value={bing16} />
-        <input type="number" name="bing17" min="1" max="25" size={2} onChange={onChange} value={bing17} />
-        <input type="number" name="bing18" min="1" max="25" size={2} onChange={onChange} value={bing18} />
-        <input type="number" name="bing19" min="1" max="25" size={2} onChange={onChange} value={bing19} />
-        <br/>
-        <input type="number" name="bing20" min="1" max="25" size={2} onChange={onChange} value={bing20} />
-        <input type="number" name="bing21" min="1" max="25" size={2} onChange={onChange} value={bing21} />
-        <input type="number" name="bing22" min="1" max="25" size={2} onChange={onChange} value={bing22} />
-        <input type="number" name="bing23" min="1" max="25" size={2} onChange={onChange} value={bing23} />
-        <input type="number" name="bing24" min="1" max="25" size={4} onChange={onChange} value={bing24} />
-        <br/><br/>
-        <button onClick={onKintone}>빙고 등록</button><br/><br/>
-                
-
-				</div>
+       <div id="bingoWarp">
+        <div id='bingTitle'><br />
+          <span style={{
+              color: "yellow", 
+              backgroundColor: "black"
+            }}>빙고 번호를 선택해 주세요 1~25까지
+          </span>
+        </div>
+              <input id="t1" type="number" name="bing0" min="1" max="25" onChange={onChange} value={bing0} />
+              <input type="number" name="bing1" min="1" max="25" onChange={onChange} value={bing1} />
+              <input type="number" name="bing2" min="1" max="25" onChange={onChange} value={bing2} />
+              <input type="number" name="bing3" min="1" max="25" onChange={onChange} value={bing3} />
+              <input type="number" name="bing4" min="1" max="25" onChange={onChange} value={bing4} />
+              <br/>
+              <input type="number" name="bing5" min="1" max="25" onChange={onChange} value={bing5} />
+              <input type="number" name="bing6" min="1" max="25" onChange={onChange} value={bing6} />
+              <input type="number" name="bing7" min="1" max="25" onChange={onChange} value={bing7} />
+              <input type="number" name="bing8" min="1" max="25" onChange={onChange} value={bing8} />
+              <input type="number" name="bing9" min="1" max="25" onChange={onChange} value={bing9} />
+              <br/>
+              <input type="number" name="bing10" min="1" max="25" onChange={onChange} value={bing10} />
+              <input type="number" name="bing11" min="1" max="25" onChange={onChange} value={bing11} />
+              <input type="number" name="bing12" min="1" max="25" onChange={onChange} value={bing12} />
+              <input type="number" name="bing13" min="1" max="25" onChange={onChange} value={bing13} />
+              <input type="number" name="bing14" min="1" max="25" onChange={onChange} value={bing14} />
+              <br/>
+              <input type="number" name="bing15" min="1" max="25" onChange={onChange} value={bing15} />
+              <input type="number" name="bing16" min="1" max="25" onChange={onChange} value={bing16} />
+              <input type="number" name="bing17" min="1" max="25" onChange={onChange} value={bing17} />
+              <input type="number" name="bing18" min="1" max="25" onChange={onChange} value={bing18} />
+              <input type="number" name="bing19" min="1" max="25" onChange={onChange} value={bing19} />
+              <br/>
+              <input type="number" name="bing20" min="1" max="25" onChange={onChange} value={bing20} />
+              <input type="number" name="bing21" min="1" max="25" onChange={onChange} value={bing21} />
+              <input type="number" name="bing22" min="1" max="25" onChange={onChange} value={bing22} />
+              <input type="number" name="bing23" min="1" max="25" onChange={onChange} value={bing23} />
+              <input type="number" name="bing24" min="1" max="25" onChange={onChange} value={bing24} />
+              <br/><br/>
+              <button onClick={onKintone}>빙고 등록</button><br/><br/>
+                      
+              </div>
         
+        <Bingo2 />
 			</div>
 	
 	);

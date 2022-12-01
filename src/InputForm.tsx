@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { useLocation } from 'react-router-dom';
-import Bingo from "./Bingo2.tsx";
+import Bingo from "./Bingo.tsx";
 import axios from "axios";
 import awsExports from "./aws-exports";
 
