@@ -80,7 +80,7 @@ function Profile({ signOut, user }) {
           <span style={{
               color: "yellow", 
               backgroundColor: "black"
-            }}>빙고 번호를 선택해 주세요 1~25까지
+            }}>빙고 번호를 선택해 주세요 1~25까지 (중복안되도록 체크하세요)
           </span>
         </div>
               <input id="t1" type="number" name="bing0" min="1" max="25" onChange={onChange} value={bing0} />
