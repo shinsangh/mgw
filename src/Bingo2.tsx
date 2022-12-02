@@ -50,6 +50,7 @@ function App2({ user })  {
       const element = document.getElementById(x);
       element.disabled = "true";           
       element.style.color = "hsl(210deg 11% 73%)"; 
+      element.style.backgroundColor = "hsl(210, 25%, 25%)"; 
     };
   
 
@@ -77,6 +78,7 @@ function App2({ user })  {
         if(disChk.includes(event.value)){
             event.disabled = "true";           
             event.style.color = "hsl(210deg 11% 73%)"; 
+            event.style.backgroundColor = "hsl(210, 25%, 25%)"; 
         }
 
         
