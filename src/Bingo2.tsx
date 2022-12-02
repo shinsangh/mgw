@@ -27,48 +27,7 @@ function App2({ user })  {
 
   const { email,bing0,bing1,bing2,bing3,bing4,bing5,bing6,bing7,bing8,bing9,bing10,bing11,bing12,bing13,bing14,bing15,bing16,bing17,bing18,bing19,bing20,bing21,bing22, bing23,bing24 } = inputs; // 비구조화 할당을 통해 값 추출
 
-  const onChange = (e) => {
-    const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
-    
-      setInputs({
-        ...inputs, // 기존의 input 객체를 복사한 뒤
-        [name]: value // name 키를 가진 값을 value 로 설정
-      });
-      
-           
   
-  };
-  async function onKintone (){
-    
-    let endpoint = endpoint2;
-    let goKin = '?email='+email+'&bingo='+bing0+','+bing1+','+bing2+','+bing3+','+bing4+','+bing5+','+bing6+','+bing7+','+bing8+','+bing9+','+bing10+','+bing11+','+bing12+','+bing13+','+bing14+','+bing15+','+bing16+','+bing17+','+bing18+','+bing19+','+bing20+','+bing21+','+bing22+','+bing23+','+bing24;
-    console.log(goKin);
-    var text;
-    try {
-      text = await getTitle(); 
-    }
-    catch(error){
-      console.log(error);
-    }
-    
-    for(var i=0; i<text.length; i++){ 
-      console.log(text[i].email.value);
-      console.log(email);
-      if(email==text[i].email.value){
-        alert("이벤트 참가는 한번만 가능합니다. 수정 원할시 별도 요청필요");
-        // eslint-disable-next-line no-restricted-globals
-        location.reload();
-        return;
-        
-      }
-    }
-    const url = endpoint+goKin;
-    fetch(url);
-    alert("이벤트 참여 완료")
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
- 
-  };
 
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -93,6 +52,38 @@ function App2({ user })  {
       element.style.color = "hsl(210deg 11% 73%)"; 
     };
   
+
+    async function disCheck(){
+      var dislist;
+      
+      try {
+        dislist = await getTitle(); 
+      }
+      catch(error){
+        console.log(error);
+      }
+  
+      function isSelected(v)  {
+        if(v.email.value === 'js.noh@mountain-info.co.jp')  {
+          return true;
+        }
+      }
+      const noh = dislist.find(isSelected);
+      let disChk = [noh.num1.value,noh.num2.value,noh.num3.value,noh.num4.value,noh.num5.value]
+  
+      for(var i=0; i <25; i++){
+        const event = document.getElementById('id'+i);
+
+        if(disChk.includes(event.value)){
+            event.disabled = "true";           
+            event.style.color = "hsl(210deg 11% 73%)"; 
+        }
+
+        
+      } 
+    }
+    disCheck();
+
     return (
         <div>
         

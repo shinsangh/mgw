@@ -20,8 +20,7 @@ function Profile({ signOut, user }) {
 
   const [btdis, enableButton] = useState("");
   const [msjbtdis, enablechkButton] = useState("");
-  if(user.attributes.email=='js.noh@mountain-info.co.jp'){
-  }
+ 
    
   const [inputs, setInputs] = useState({
     num1:'',
@@ -85,7 +84,15 @@ function Profile({ signOut, user }) {
     }
     const url = endpoint+goKin;
     fetch(url);
-    alert("이벤트 참여 완료")
+
+    if(email=='js.noh@mountain-info.co.jp'){
+      alert("당첨번호 입력 완료")
+    }else{
+      alert("이벤트 참여 완료")
+    }
+    
+
+
     // eslint-disable-next-line no-restricted-globals
     location.reload();
  
@@ -109,7 +116,9 @@ function Profile({ signOut, user }) {
     
   }
 
-
+  check();
+ 
+  
   async function check(){
     var check;
     let bae=0;
@@ -123,13 +132,25 @@ function Profile({ signOut, user }) {
     catch(error){
       console.log(error);
     }
-    let members = ['sj.bae@mountain-info.co.jp','ys.kim@mountain-info.co.jp','sh.shin@mountain-info.co.jp','sk.kim@mountain-info.co.jp','sw.lee@mountain-info.co.jp'];
+
+    function isApple(v)  {
+      if(v.email.value === 'js.noh@mountain-info.co.jp')  {
+        return true;
+      }
+    }
+    const noh = check.find(isApple);
+
+    let members = ['js.noh@mountain-info.co.jp','sj.bae@mountain-info.co.jp','ys.kim@mountain-info.co.jp','sh.shin@mountain-info.co.jp','sk.kim@mountain-info.co.jp','sw.lee@mountain-info.co.jp'];
+   
+
+      let chk = [noh.num1.value,noh.num2.value,noh.num3.value,noh.num4.value,noh.num5.value];
+
     for(var i=0; i<check.length; i++){ 
-      
+  
       for(var m=0; m <5; m++){
       if(check[i].email.value===members[m]){
         let number = [check[i].num1.value,check[i].num2.value,check[i].num3.value,check[i].num4.value,check[i].num5.value];
-        let chk = [loto1,loto2,loto3,loto4,loto5];
+        
         
           switch ( check[i].email.value ) {
             case "sj.bae@mountain-info.co.jp":
@@ -200,7 +221,7 @@ function Profile({ signOut, user }) {
       }
     }
     }
- 
+    
   };
 
   async function myNum(){
@@ -260,14 +281,7 @@ function Profile({ signOut, user }) {
               color: "yellow", 
               backgroundColor: "black"
             }}>←입력칸</span><br/><br/>
-					
 
-        <input type="number" name="loto1" min="1" max="20" onChange={onChange} value={loto1} />
-        <input type="number" name="loto2" min="1" max="20" onChange={onChange} value={loto2} />
-        <input type="number" name="loto3" min="1" max="20" onChange={onChange} value={loto3} />
-        <input type="number" name="loto4" min="1" max="20" onChange={onChange} value={loto4} />
-        <input type="number" name="loto5" min="1" max="20" onChange={onChange} value={loto5} />
-        <button onClick={check} disabled={!msjbtdis}>당첨 확인(사장님 전용)</button><br/> 
         <div id='lotochk'/>
           
         </div>
